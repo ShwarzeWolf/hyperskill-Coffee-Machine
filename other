@@ -1,0 +1,42 @@
+String start = new String ("Starting to make a coffee");
+        String grindCoffeeBeans = new String ("Grinding coffee beans");
+        String boilWater = new String ("Boiling water");
+        String mixWithBeans = new String ("Mixing boiled water with crushed coffee beans");
+        String pourIntoCup = new String("Pouring coffee into the cup");
+        String addMilk = new String("Pouring some milk into the cup");
+        String isReady = new String("Coffee is ready!");
+
+        final Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Write how many ml of water the coffee machine has: ");
+        int waterAvailiable = scanner.nextInt();
+
+        System.out.print("Write how many ml of milk the coffee machine has: ");
+        int milkAvailiable = scanner.nextInt();
+
+        System.out.print("Write how many grams of coffee beans the coffee machine has: ");
+        int coffeeBeansAvailiable = scanner.nextInt();
+
+        System.out.print("Write how many cups of coffee you will need: ");
+        int neededAmountOfCups = scanner.nextInt();
+
+        int waterPerCup = 200;
+        int milkPerCup = 50;
+        int coffeeBeansPerCup = 15;
+
+        int numberOfCupsWithWater = waterAvailiable / waterPerCup;
+        int numberOfCupsWithMilk = milkAvailiable / milkPerCup;
+        int numberOfCupsWithBeans = coffeeBeansAvailiable / coffeeBeansPerCup;
+
+        int numberOfCups = numberOfCupsWithBeans;
+        if (numberOfCupsWithWater < numberOfCups)
+            numberOfCups = numberOfCupsWithWater;
+        if (numberOfCupsWithMilk < numberOfCups)
+            numberOfCups = numberOfCupsWithMilk;
+
+        if (numberOfCups == neededAmountOfCups)
+            System.out.println("Yes, I can make that amount of coffee");
+        else if (numberOfCups > neededAmountOfCups)
+            System.out.println("Yes, I can make that amount of coffee (and even " + String.valueOf(numberOfCups - neededAmountOfCups) + " more than that)");
+        else
+            System.out.println("No, I can make only " + String.valueOf(numberOfCups) + " cup(s) of coffee");
